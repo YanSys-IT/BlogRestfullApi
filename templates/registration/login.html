@@ -6,10 +6,16 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title mb-3">Login</h3>
+          <h3 class="card-title mb-3">Вход</h3>
+
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
 
           {% if form.errors %}
-            <div class="alert alert-danger">Please correct the errors below.</div>
+            <div class="alert alert-danger">Проверьте правильность данных.</div>
           {% endif %}
 
           <form method="post" action="{% url 'login' %}">
@@ -19,7 +25,7 @@
             {% endif %}
 
             <div class="mb-3">
-              <label for="id_username" class="form-label">Username</label>
+              <label for="id_username" class="form-label">Имя пользователя</label>
               {{ form.username }}
               {% if form.username.errors %}
                 <div class="text-danger small">{{ form.username.errors }}</div>
@@ -27,7 +33,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="id_password" class="form-label">Password</label>
+              <label for="id_password" class="form-label">Пароль</label>
               {{ form.password }}
               {% if form.password.errors %}
                 <div class="text-danger small">{{ form.password.errors }}</div>
@@ -35,11 +41,12 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
-              <button type="submit" class="btn btn-primary">Login</button>
-              <a href="{% url 'password_reset' %}" class="small">Forgot password?</a>
+              <button type="submit" class="btn btn-primary">Войти</button>
+              <a href="{% url 'password_reset' %}" class="small">Забыли пароль?</a>
             </div>
           </form>
-
+          <hr>
+          <p class="mt-3">Нет аккаунта? <a href="{% url 'register' %}">Зарегистрируйтесь</a></p>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from .views import index
 from django.contrib.auth import views as auth_views
 from users.forms import (
     BootstrapAuthenticationForm,
@@ -9,7 +10,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from posts.views import post_create
 
+from users.views_web import register
+
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/posts/', include('posts.urls')),
@@ -43,7 +47,7 @@ urlpatterns = [
         ),
         name='password_reset_done',
     ),
-    # other default auth urls (password reset confirm/complete) can continue to use defaults
+    path('accounts/register/', register, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 

@@ -1,0 +1,46 @@
+/* Custom styles for Blog UI */
+
+.navbar-brand, .nav-link, .dropdown-item, .btn-link {
+  text-decoration: none !important;
+}
+
+.nav-link.active, .nav-link:focus, .nav-link:hover {
+  color: #0d6efd !important;
+  font-weight: 500;
+  background: none;
+  text-decoration: none !important;
+}
+
+.card-title a {
+  color: #212529;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+.card-title a:hover {
+  color: #0d6efd;
+  text-decoration: none !important;
+}
+
+.btn, .btn-outline-primary, .btn-primary {
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+input.form-control, textarea.form-control {
+  border-radius: 0.5rem;
+}
+
+.alert {
+  border-radius: 0.5rem;
+}
+
+/* Remove underline from links everywhere */
+a {
+  text-decoration: none !important;
+}
+
+/* Add more custom styles as needed */

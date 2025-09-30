@@ -4,9 +4,10 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="alert alert-info">You have been logged out.</div>
-      <a class="btn btn-primary" href="{% url 'web-post-list' %}">Back to posts</a>
-      <a class="btn btn-link" href="{% url 'login' %}">Login again</a>
+      <div class="alert alert-info">Вы успешно вышли из аккаунта.</div>
+      <a class="btn btn-primary" href="/">На главную</a>
+      <a class="btn btn-link" href="{% url 'login' %}">Войти снова</a>
+      <a class="btn btn-link" href="{% url 'register' %}">Зарегистрироваться</a>
     </div>
   </div>
 </div>

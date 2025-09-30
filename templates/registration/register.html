@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4">
+            <i class="bi bi-person-plus" style="font-size:2rem;"></i><br>
+            Регистрация
+          </h2>
+          <form method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+            {% endif %}
+            <div class="mb-3">
+              <label for="id_username" class="form-label"><i class="bi bi-person"></i> Имя пользователя</label>
+              {{ form.username }}
+              {% if form.username.errors %}
+                <div class="text-danger small">{{ form.username.errors }}</div>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_email" class="form-label"><i class="bi bi-envelope"></i> Email</label>
+              {{ form.email }}
+              {% if form.email.errors %}
+                <div class="text-danger small">{{ form.email.errors }}</div>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_password1" class="form-label"><i class="bi bi-lock"></i> Пароль</label>
+              {{ form.password1 }}
+              {% if form.password1.errors %}
+                <div class="text-danger small">{{ form.password1.errors }}</div>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_password2" class="form-label"><i class="bi bi-lock-fill"></i> Повторите пароль</label>
+              {{ form.password2 }}
+              {% if form.password2.errors %}
+                <div class="text-danger small">{{ form.password2.errors }}</div>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_bio" class="form-label"><i class="bi bi-info-circle"></i> О себе</label>
+              {{ form.bio }}
+            </div>
+            <div class="mb-3">
+              <label for="id_birth_date" class="form-label"><i class="bi bi-calendar"></i> Дата рождения</label>
+              {{ form.birth_date }}
+            </div>
+            <div class="mb-3">
+              <label for="id_profile_picture" class="form-label"><i class="bi bi-image"></i> Фото профиля</label>
+              {{ form.profile_picture }}
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 mt-2">Зарегистрироваться</button>
+          </form>
+          <hr>
+          <div class="text-center">
+            <a href="{% url 'login' %}" class="link-primary">Уже есть аккаунт? Войти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
