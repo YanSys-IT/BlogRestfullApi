@@ -23,26 +23,20 @@ urlpatterns = [
 
     path('create/', post_create, name='create_post'),
     # include Django's built-in auth views but override login and password reset with bootstrap forms
-    path(
-        'accounts/login/',
-        auth_views.LoginView.as_view(
+    path('accounts/login/', auth_views.LoginView.as_view(
             template_name='registration/login.html',
             authentication_form=BootstrapAuthenticationForm,
         ),
         name='login',
     ),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path(
-        'accounts/password_reset/',
-        auth_views.PasswordResetView.as_view(
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(
             template_name='registration/password_reset_form.html',
             form_class=BootstrapPasswordResetForm,
         ),
         name='password_reset',
     ),
-    path(
-        'accounts/password_reset/done/',
-        auth_views.PasswordResetDoneView.as_view(
+    path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(
             template_name='registration/password_reset_done.html'
         ),
         name='password_reset_done',

@@ -15,6 +15,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     image = models.ImageField(upload_to='posts/', null=True, blank=True, verbose_name='Изображение')
     
+    
     def __str__(self):
         return self.title
 
@@ -22,14 +23,9 @@ class Post(models.Model):
         ordering = ['-created_at']
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
-        verbose_name = 'Пост'
-        verbose_name_plural = 'Посты'
 
 
 class Comment(models.Model):
-    """
-    Модель для комментариев к постам.
-    """
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,

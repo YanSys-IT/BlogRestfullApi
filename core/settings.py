@@ -1,9 +1,7 @@
-
-
 import os
 from datetime import timedelta
 from pathlib import Path
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -23,10 +21,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Сторонние приложения
+    
     'rest_framework',
     'rest_framework_simplejwt',
-    # Чтобы фронтенд мог общаться с бэкендом
     'corsheaders',
 
     'users',
@@ -76,9 +73,7 @@ DATABASES = {
 }
 AUTH_PASSWORD_VALIDATORS = [
     
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     
@@ -136,8 +131,8 @@ CORS_ALLOWED_ORIGINS = [
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Where to redirect after login/logout
-LOGIN_REDIRECT_URL = '/posts/'
-LOGOUT_REDIRECT_URL = '/posts/'
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = ''
 
 
 
